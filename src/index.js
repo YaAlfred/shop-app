@@ -18,6 +18,7 @@ class Home extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.buyItems = this.buyItems.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.updatePrice = this.updatePrice.bind(this);
 
     this.state = {
       open: false,
@@ -43,6 +44,7 @@ class Home extends React.Component {
     }
     if(itemInCart === false){
       item.amount = 1;
+      item.discount = false;
       countItems += 1;
       cartItems.push(item);
     }
@@ -69,7 +71,6 @@ class Home extends React.Component {
     })
   }
 
-
   buyItems() {
     this.handleClose();
     this.setState({
@@ -88,6 +89,16 @@ class Home extends React.Component {
       totalItems:this.state.totalItems - 1,
       message:'Item removed from basket!',
       snakeBar:true
+    });
+  }
+
+  updatePrice(item, discount){
+    let currentCart = this.state.cart;
+    currentCart[item].discount = discount;
+    this.setState({
+      cart: currentCart,
+      message: discount === true ? 'You yearned 20% discount!' : '',
+      snakeBar: discount === true ? true : false
     });
   }
 
@@ -125,6 +136,7 @@ class Home extends React.Component {
             handleClose={this.handleClose}
             removeItem={this.removeItem}
             buyItems={this.buyItems}
+            updatePrice={this.updatePrice}
             />
           <Snackbar
             open={this.state.snakeBar}
@@ -138,11 +150,4 @@ class Home extends React.Component {
   }
 }
 
-ReactDOM
-  .render(
-    <Home/>,
-    document
-      .getElementById(
-        'app'
-      ))
-;
+ReactDOM.render(<Home/>, document.getElementById('app'));

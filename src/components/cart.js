@@ -50,14 +50,19 @@ class Cart extends React.Component {
   }
 
   countTotalPrice() {
-    let items = this.props.items;
-    let price = 0;
+    let items = this.props.items,
+        price = 0,
+        current_price = 0;
+
     for (let i = 0; i < items.length; i++) {
-      price += items[i].price * items[i].amount;
+      current_price = (items[i].discount === false ? items[i].price : items[i].discount_price)
+      price += current_price * items[i].amount;
     }
-    if(this.state.coupon_all === true){
-      price = price * 0.9;
+    console.log(this.state.coupon_all_on);
+    if(this.state.coupon_all_on === true){
+      price = Math.round(price * 0.9);
     }
+
     console.log('new Total price is: ' + price);
     this.setState({
       total_amount: price
@@ -65,10 +70,16 @@ class Cart extends React.Component {
   }
 
   checkItemCouponCode(e, value){
-    console.log('check coupon value')
+    console.log('check coupon value');
     let item_id = e.target.getAttribute('data-id');
     if(this.props.items[item_id].discount_id === parseInt(value)){
-      console.log('you yarn discount!');
+      e.target.parentNode.style = "background-color:#ccc";
+      this.props.updatePrice(item_id, true);
+      console.log('you yarn discount! ' + this.props.items[item_id].price);
+    }else if(this.props.items[item_id].discount === true
+      && this.props.items[item_id].discount_id !== parseInt(value)){
+      e.target.parentNode.style = "background-color:transparent";
+      this.props.updatePrice(item_id, false);
     }
   }
 
@@ -77,17 +88,24 @@ class Cart extends React.Component {
       this.setState({
         coupon_all_on: true
       });
-      this.countTotalPrice();
+      console.log('earned total discount!');
+      setTimeout(()=>{this.countTotalPrice()}, 300);
+    }else{
+      this.setState({
+        coupon_all_on: false
+      });
+      setTimeout(()=>{this.countTotalPrice()}, 300);
     }
   }
 
   render() {
-    const totalPrice = this.state.total_amount;
+    const totalPrice = this.state.total_amount,
+          items = this.props.items;
     const actions = (totalPrice !== 0) ? ([
         <RaisedButton
           label="Cancel"
           primary={true}
-          style={{'margin-right': '20px'}}
+          style={{'marginRight': '20px'}}
           onClick={this.props.handleClose}
         />,
         <RaisedButton
@@ -107,7 +125,7 @@ class Cart extends React.Component {
       <TableRow key={key} data-id={key}>
         <TableRowColumn>{item.name}</TableRowColumn>
         <TableRowColumn>{item.weight} gr.</TableRowColumn>
-        <TableRowColumn>{item.price}$</TableRowColumn>
+        <TableRowColumn>{item.discount === false ? item.price : item.discount_price}$</TableRowColumn>
         <TableRowColumn><TextField
           id={"amount-input-" + key}
           data-id={key}
@@ -117,6 +135,7 @@ class Cart extends React.Component {
         <TableRowColumn><TextField
           id={"coupon-for-" + key}
           data-id={key}
+          defaultValue={item.discount === true ? item.discount_id : ''}
           onChange={(e, value) => this.checkItemCouponCode(e, value)}
         /></TableRowColumn>
         <TableRowColumn>
@@ -148,7 +167,7 @@ class Cart extends React.Component {
               </TableRow>
             </TableHeader>
             <TableBody displayRowCheckbox={false}>
-              {this.props.items.map((item, i) => {
+              {items.map((item, i) => {
                 return (
                   ItemRow(item, i)
                 );
@@ -156,7 +175,8 @@ class Cart extends React.Component {
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TableRowColumn>Enter Total coupon code here(10%): <TextField
+                <TableRowColumn>Enter Total coupon code here(10%): </TableRowColumn>
+                <TableRowColumn><TextField
                   id={"coupon-all"}
                   onChange={(e, value) => this.checkFullCouponCode(e, value)}
                 /></TableRowColumn>
