@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {GridList} from 'material-ui/GridList';
-import RaisedButton from 'material-ui/FlatButton';
+import FlatButton from 'material-ui/FlatButton';
+import ActionAddShoppingCart from 'material-ui/svg-icons/action/add-shopping-cart';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class ProductList extends React.Component {
   clickButton(item){
     this.props.addToCart(item);
   }
-
+ 
   render() {
     const Item = (item, key) => (
       <Card key={key}>
@@ -20,7 +21,7 @@ class ProductList extends React.Component {
           subtitle={"price: " + item.price + '$'}
         />
         <CardActions>
-          <RaisedButton primary={true} label="Add To Cart" onClick={() => this.clickButton(item)} />
+          <FlatButton icon={<ActionAddShoppingCart />} primary={true} label="Add To Cart" onClick={() => this.clickButton(item)} />
         </CardActions>
         <CardText>
           {item.description}

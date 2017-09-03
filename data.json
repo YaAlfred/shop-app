@@ -3,7 +3,7 @@
     {
       "id":1,
       "name":"product1",
-      "description": "product description",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus eget sapien eu mattis. Donec euismod at dui in viverra. Donec elementum eleifend nunc nec semper. Sed a erat magna. Mauris neque leo, malesuada ut augue vitae, porttitor interdum quam. Sed eget dapibus purus. Curabitur hendrerit a turpis quis blandit. Nulla facilisi. Donec a eros vel enim euismod luctus. Praesent in dui a dui ultricies iaculis. ",
       "price": 24,
       "weight": 48,
       "discount_id": 123,
@@ -12,7 +12,7 @@
     {
       "id":2,
       "name":"product2",
-      "description": "product description",
+      "description": "Mauris feugiat mattis diam ut sollicitudin. Aliquam nibh nibh, mattis ut risus quis, rutrum luctus dolor. Nulla elementum sit amet leo sit amet porta. Nulla tellus nunc, venenatis a euismod consectetur, posuere sit amet dui. Maecenas sit amet vehicula dolor. In gravida leo purus, eget efficitur nulla ultrices in. Donec gravida enim lorem, eu efficitur enim fringilla nec. Curabitur ultricies nunc quam, ultrices pellentesque turpis mollis et. Phasellus efficitur tellus sit amet magna condimentum sagittis. Maecenas luctus ut leo at convallis. Proin sed nibh quam. Phasellus accumsan hendrerit sapien, quis hendrerit est imperdiet ac. Aliquam erat volutpat. Fusce tincidunt lacinia augue, ac tristique tortor auctor ut. Nullam tincidunt in nunc sed elementum. Nulla turpis ligula, molestie non metus quis, ullamcorper porttitor sem. ",
       "price": 44,
       "weight": 45,
       "discount_id": 123,
@@ -21,7 +21,7 @@
     {
       "id":3,
       "name":"product3",
-      "description": "product description",
+      "description": "Nullam egestas lectus non nisl cursus elementum ac ut magna. Nulla malesuada justo vel vehicula malesuada. Praesent non luctus nisl. Vivamus purus lorem, ultricies at dignissim a, ullamcorper a elit. Aliquam id congue mi. Proin a arcu eu lorem malesuada dictum. Suspendisse posuere ultricies consectetur. ",
       "price": 34,
       "weight": 55,
       "discount_id": 123,
@@ -30,7 +30,7 @@
     {
       "id":4,
       "name":"product5",
-      "description": "product description",
+      "description": "Quisque placerat orci scelerisque turpis lobortis, vel tempus magna tincidunt. Etiam odio dolor, finibus sed auctor in, posuere sit amet enim. Fusce molestie ultrices elit, quis bibendum magna tincidunt id. Pellentesque porttitor turpis at quam varius, sed viverra lorem pellentesque. ",
       "price": 44,
       "weight": 34,
       "discount_id": 123,
@@ -39,7 +39,7 @@
     {
       "id":5,
       "name":"product6",
-      "description": "product description",
+      "description": "Nunc lacinia posuere purus consectetur ultrices. Nullam ultricies ac urna quis porttitor. Nunc congue mauris non pretium dictum. Mauris eget diam ut lorem posuere interdum. Ut vestibulum mauris et posuere tincidunt. Pellentesque posuere magna arcu, quis vehicula leo tempor sit amet. Vivamus volutpat consectetur turpis, ac aliquam dolor eleifend sit amet. Mauris vitae neque efficitur, fringilla eros mattis, tincidunt tortor. ",
       "price": 24,
       "weight": 48,
       "discount_id": 123,
@@ -48,7 +48,7 @@
     {
       "id":6,
       "name":"product7",
-      "description": "product description",
+      "description": "Suspendisse lobortis auctor quam at auctor. Quisque nec facilisis nunc. Cras sit amet tristique lectus, sed sagittis sem. Nulla vel sem sapien. Maecenas in est vitae mauris elementum euismod at sit amet ligula. Maecenas ac sem nec neque ultricies tristique eu eget diam. ",
       "price": 24,
       "weight": 48,
       "discount_id": 123,
@@ -57,7 +57,7 @@
     {
       "id":7,
       "name":"product8",
-      "description": "product description",
+      "description": "Aliquam non felis fringilla, mollis mauris vel, rhoncus magna. Donec sed ante mauris. Aliquam et purus eu massa interdum blandit et rhoncus augue. Vivamus orci purus, aliquam vitae condimentum non, luctus sed felis. Aenean sit amet velit odio. Duis ullamcorper vulputate malesuada. Cras pellentesque libero a neque imperdiet, vel fermentum massa sagittis. ",
       "price": 24,
       "weight": 48,
       "discount_id": 123,
@@ -66,7 +66,7 @@
     {
       "id":8,
       "name":"product9",
-      "description": "product description",
+      "description": "Phasellus accumsan hendrerit sapien, quis hendrerit est imperdiet ac. Aliquam erat volutpat. Fusce tincidunt lacinia augue, ac tristique tortor auctor ut. Nullam tincidunt in nunc sed elementum. Nulla turpis ligula, molestie non metus quis, ullamcorper porttitor sem. ",
       "price": 24,
       "weight": 48,
       "discount_id": 123,

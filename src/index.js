@@ -12,7 +12,6 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Snackbar from 'material-ui/Snackbar';
-import ChekoutPage from './components/checkout';
 
 class Home extends React.Component {
   constructor(props) {
