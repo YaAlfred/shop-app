@@ -18,13 +18,11 @@ class ProductList extends React.Component {
         <CardHeader
           title={item.name}
           subtitle={"price: " + item.price + '$'}
-          actAsExpander={true}
-          showExpandableButton={true}
         />
         <CardActions>
           <RaisedButton primary={true} label="Add To Cart" onClick={() => this.clickButton(item)} />
         </CardActions>
-        <CardText expandable={true}>
+        <CardText>
           {item.description}
         </CardText>
       </Card>
