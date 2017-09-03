@@ -109,7 +109,7 @@ class Cart extends React.Component {
           onClick={this.props.handleClose}
         />,
         <RaisedButton
-          label="Buy"
+          label="Process To Checkout"
           primary={true}
           keyboardFocused={true}
           onClick={this.props.buyItems}

@@ -8,7 +8,11 @@ import AppBar from 'material-ui/AppBar';
 import AppData from '../data.json';
 import ProductList from './components/product-list';
 import Cart from './components/cart';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import Snackbar from 'material-ui/Snackbar';
+import ChekoutPage from './components/checkout';
 
 class Home extends React.Component {
   constructor(props) {
@@ -21,12 +25,18 @@ class Home extends React.Component {
     this.updatePrice = this.updatePrice.bind(this);
 
     this.state = {
+      openMenu:false,
       open: false,
       message: '-',
       snakeBar:false,
       cart: [],
       totalItems:0
     }
+  }
+
+  handleToggleMenu(){
+    console.log('toggle menu');
+    this.setState({openMenu: !this.state.openMenu});
   }
 
   addToCart(item) {
@@ -73,6 +83,7 @@ class Home extends React.Component {
 
   buyItems() {
     this.handleClose();
+
     this.setState({
       cart:[],
       totalItems:0,
@@ -125,25 +136,34 @@ class Home extends React.Component {
             title="Simple store app"
             iconElementRight={this.state.open ? cartIcon : cartIcon}
             onRightIconButtonTouchTap={this.openBasket.bind(this)}
+            onLeftIconButtonTouchTap={this.handleToggleMenu.bind(this)}
           />
-          <ProductList
-            products={AppData.products}
-            addToCart={this.addToCart}
-          />
-          <Cart
-            items={this.state.cart}
-            open={this.state.open}
-            handleClose={this.handleClose}
-            removeItem={this.removeItem}
-            buyItems={this.buyItems}
-            updatePrice={this.updatePrice}
+          <Tabs>
+            <Tab label="Catalog"  value="a">
+              <ProductList
+                products={AppData.products}
+                addToCart={this.addToCart}
+              />
+            </Tab>
+            <Cart
+              items={this.state.cart}
+              open={this.state.open}
+              handleClose={this.handleClose}
+              removeItem={this.removeItem}
+              buyItems={this.buyItems}
+              updatePrice={this.updatePrice}
             />
-          <Snackbar
-            open={this.state.snakeBar}
-            message={this.state.message}
-            action="undo"
-            autoHideDuration={3000}
-          />
+            <Drawer open={this.state.openMenu} openSecondary={true}>
+              <MenuItem>Menu Item</MenuItem>
+              <MenuItem>Menu Item 2</MenuItem>
+            </Drawer>
+            <Snackbar
+              open={this.state.snakeBar}
+              message={this.state.message}
+              action="undo"
+              autoHideDuration={3000}
+            />
+          </Tabs>
         </div>
       </MuiThemeProvider>
     )
