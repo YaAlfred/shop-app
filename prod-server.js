@@ -7,20 +7,20 @@ const https = require('http'),
 
 const server = https.createServer({}, (req, res) => {
 
-    console.log('request');
+    //console.log('request');
     const curr_path = publicFolder + req.url,
         lstat = fs.lstatSync(curr_path);
 
     if(lstat.isDirectory()) {
-        console.log('request a dir');
+        //console.log('request a dir');
         fs.readFile(INDEX, (err, data) => {
             if (err) throw err;
             res.writeHead(200);
             res.end(data);
         });
     } else if (lstat.isFile()) {
-        console.log('request a file');
-        console.log(curr_path);
+        //console.log('request a file');
+        //console.log(curr_path);
         fs.readFile(curr_path, function (err, data) {
             if (err) {
                 res.writeHead(404);
