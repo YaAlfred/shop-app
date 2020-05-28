@@ -2,11 +2,12 @@ const https = require('https'),
       fs = require('fs'),
       path = require('path'),
       port = process.env.PORT || 3000,
-      INDEX = path.resolve(__dirname, "./public/index.html");
+      publicFolder = __dirname + "./public";
+      INDEX = path.resolve(publicFolder + "/index.html");
 
 const server = https.createServer({}, (req, res) => {
 
-    const curr_path = __dirname + '/public' + req.url,
+    const curr_path = publicFolder + req.url,
         lstat = fs.lstatSync(curr_path);
 
     if(lstat.isDirectory()) {
@@ -30,7 +31,7 @@ const server = https.createServer({}, (req, res) => {
 
 server.on('clientError', (err, socket) => {
     console.log('error');
-    console.err(err);
+    console.error(err);
 });
 
 server.listen(port, () => console.log(`Listening https on ${port}`));
