@@ -9,11 +9,11 @@ module.exports = {
   ],
   output: {
     filename: "index_bundle.js",
-    path: path.join(__dirname + '/app'),
+    path: path.join(__dirname + '/public'),
     publicPath : PUBLIC_PATH
   },
   devServer: {
-    contentBase: './app'
+    contentBase: './public'
   },
   watch   : true,
   module  : {

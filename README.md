@@ -3,7 +3,7 @@
 *****************************************
 To run:
 1. install node modules: npm install
-2. run web-server: npm run server
+2. run dev-web-server: npm run dev-server
 3. open browser on localhost:8080
 4. enjoy...
 
