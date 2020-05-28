@@ -2,7 +2,7 @@ const https = require('http'),
       fs = require('fs'),
       path = require('path'),
       port = process.env.PORT || 3000,
-      publicFolder = __dirname + "./public";
+      publicFolder = __dirname + "/public";
       INDEX = path.resolve(publicFolder + "/index.html");
 
 const server = https.createServer({}, (req, res) => {
